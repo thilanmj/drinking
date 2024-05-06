@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-xs-12 col-md-6">
+    <div class="product-content product-wrap">
+      <div class="row">
+        <div class="col-md-5 col-sm-12 col-xs-12">
+          <div class="product-image">
+            <img [src]="drink?.strDrinkThumb" height="246" width="238">
+          </div>
+        </div>
+        <div class="col-md-7 col-sm-12 col-xs-12">
+          <div class="product-deatil">
+            <h5 class="name">
+              <a href="#">
+                {{drink?.strDrink}}
+              </a>
+            </h5>
+          </div>
+          <div>
+            <span>Ingredient</span>
+            <ul>
+              <li *ngFor="let ingredient of [].constructor(15); let i = index">
+                <span *ngIf="drink && drink['strIngredient'+(i+1)]!='' ">{{drink['strIngredient'+(i+1)] }}</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <span>Instructions</span>
+            <ul>
+              <li *ngFor="let lang of languages; let i = index">
+                <span *ngIf="drink && drink['strInstructions'+lang]!='' "><span *ngIf="drink['strInstructions'+lang] !=null; "><strong *ngIf="lang==''">EN</strong> <strong>{{lang}}</strong>: </span>{{drink['strInstructions'+lang] }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
